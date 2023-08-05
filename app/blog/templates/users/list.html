@@ -6,7 +6,7 @@
     {% for user_id in users %}
       <li>
         <h4>
-          <a href="{{ url_for('user.user_detail', pk=user_id) }}">
+          <a href="{{ url_for('users.details', pk=user_id) }}">
             {{ users[user_id].name }}
           </a>
         </h4>
