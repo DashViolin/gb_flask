@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Articles:</h2>
+  <ul>
+    {% for article_id in articles %}
+      <li>
+        <h3>
+          <a href="{{ url_for('article.article_detail', pk=article_id) }}">
+            {{ articles[article_id].title | capitalize }}
+          </a>
+        </h3>
+        <p>
+          {{ articles[article_id].summary }}
+        </p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

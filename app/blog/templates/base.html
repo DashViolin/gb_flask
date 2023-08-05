@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <title>
+    {% block title %}
+      Blog
+    {% endblock %}
+  </title>
+  {% block css %}
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  {% endblock %}
+</head>
+
+<body id="top" class="d-flex flex-column min-vh-100">
+<main class="flex-shrink-0">
+  {% block navbar %}
+    {% include 'navbar.html' %}
+  {% endblock %}
+
+  <div class="container my-5">
+    {% block content %}
+      Lorem ipsum...
+    {% endblock %}
+  </div>
+</main>
+
+{% block footer %}
+  {% include 'footer.html' %}
+{% endblock %}
+
+{% block js %}
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+{% endblock %}
+</body>
+</html>
