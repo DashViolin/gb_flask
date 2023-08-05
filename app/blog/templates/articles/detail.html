@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h3>{{ article.title | capitalize }}</h3>
+  <p class="mt-1">
+    <span class="my-3 me-3"><i>{{ article.created_at | rus_datetime_fmt }}</i></span>
+    {% if author %}
+      <span class="m-3">
+      <a href="{{ url_for('user.user_detail', pk=article.author_id) }}">{{ author.name }}</a>
+      </span>
+      <span class="m-3">{{ author.email }}</span>
+    {% endif %}
+  </p>
+  <br>
+  <p><b>{{ article.summary }}</b></p>
+  <br>
+  <p>{{ article.body }}</p>
+{% endblock %}
