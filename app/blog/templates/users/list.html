@@ -3,12 +3,13 @@
 {% block content %}
   <h2>Users:</h2>
   <ul>
-    {% for user_id in users %}
+    {% for user in users %}
       <li>
         <h4>
-          <a href="{{ url_for('users.details', pk=user_id) }}">
-            {{ users[user_id].name }}
+          <a href="{{ url_for('users_app.details', pk=user.id) }}">
+            {{ user.username }}
           </a>
+          {{ user.fullname }}
         </h4>
       </li>
     {% endfor %}

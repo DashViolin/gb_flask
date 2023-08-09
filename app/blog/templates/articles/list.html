@@ -3,15 +3,15 @@
 {% block content %}
   <h2>Articles:</h2>
   <ul>
-    {% for article_id in articles %}
+    {% for article in articles %}
       <li>
         <h3>
-          <a href="{{ url_for('articles.details', pk=article_id) }}">
-            {{ articles[article_id].title | capitalize }}
+          <a href="{{ url_for('articles_app.details', pk=article.id) }}">
+            {{ article.title | capitalize }}
           </a>
         </h3>
         <p>
-          {{ articles[article_id].summary }}
+          {{ article.summary }}
         </p>
       </li>
     {% endfor %}

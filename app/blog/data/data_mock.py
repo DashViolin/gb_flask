@@ -4,10 +4,10 @@ import pathlib
 
 # test data created with https://www.databasetestdata.com
 
-current_path = pathlib.Path().resolve()
+current_path = pathlib.Path(__file__).resolve().parent
 
-users_fixture = current_path / r"app/blog/db/fixtures/users.json"
-articles_fixture = current_path / r"app/blog/db/fixtures/articles.json"
+users_fixture = current_path / r"fixtures/users.json"
+articles_fixture = current_path / r"fixtures/articles.json"
 
 USERS = {}
 ARTICLES = {}

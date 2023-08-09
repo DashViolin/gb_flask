@@ -20,6 +20,19 @@
     {% include 'navbar.html' %}
   {% endblock %}
 
+  {% block greeting %}
+    <div class="container my-5">
+      <h1>
+        Hello,
+        {% if current_user.is_authenticated %}
+          {{ current_user.username }}!
+        {% else %}
+          anon!
+        {% endif %}
+      </h1>
+    </div>
+  {% endblock %}
+
   <div class="container my-5">
     {% block content %}
       Lorem ipsum...

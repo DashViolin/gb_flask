@@ -21,7 +21,17 @@ def after_request(response: Response):
 @app.errorhandler(404)
 def handler_404(error_msg):
     app.logger.error(error_msg)
-    return "Not found!", 404
+    if not app.debug:
+        return "Not found!", 404
+    return f"{error_msg}", 404
+
+
+@app.errorhandler(403)
+def handler_404(error_msg):
+    app.logger.error(error_msg)
+    if not app.debug:
+        return "Forbidden!", 403
+    return f"{error_msg}", 403
 
 
 @app.errorhandler(Exception)

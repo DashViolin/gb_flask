@@ -6,8 +6,9 @@
     <span class="my-3 me-3"><i>{{ article.created_at | rus_datetime_fmt }}</i></span>
     {% if author %}
       <span class="m-3">
-      <a href="{{ url_for('users.details', pk=article.author_id) }}">{{ author.name }}</a>
+      <a href="{{ url_for('users_app.details', pk=article.author_id) }}">{{ author.username }}</a>
       </span>
+      <span class="m-3">{{ author.fullname }}</span>
       <span class="m-3">{{ author.email }}</span>
     {% endif %}
   </p>
