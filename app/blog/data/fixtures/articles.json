@@ -5,7 +5,8 @@
     "created_at": "2022-12-27T13:09:31.094Z",
     "summary": "inventore officia consequuntur dolorem dolorum adipisci\naccusamus est atque quam odit neque\nratione quibusdam ab",
     "author_id": 1,
-    "id": 1
+    "id": 1,
+    "is_published": true
   },
   {
     "body": "nemo qui ut consequatur blanditiis aperiam\naliquam voluptate quo aut\nsunt accusamus non qui\n \r\tqui labore quia dolorem\nvel quis rem\net numquam dolore natus commodi tempore mollitia\nperferendis pariatur quia molestias sint doloribus quis beatae dignissimos\n \r\tvitae debitis consequuntur animi rerum ullam voluptatum sequi sunt\nsit necessitatibus ipsam vel inventore id aperiam asperiores maxime\ntempora quam quia nulla dolores eum",
@@ -13,7 +14,8 @@
     "created_at": "1989-09-25T00:13:35.842Z",
     "summary": "quia beatae nobis ut repellat eos sit\nveritatis eius officiis\nquasi et atque accusantium necessitatibus",
     "author_id": 5,
-    "id": 2
+    "id": 2,
+    "is_published": true
   },
   {
     "body": "incidunt excepturi aut earum\net et quo dolorum illo\npossimus ipsam dolor minus esse provident animi culpa\neligendi ut necessitatibus enim et qui\n \r\tmaiores nisi quo\nut dolores ducimus\nest neque autem enim itaque necessitatibus\nqui ipsam deserunt eum et et\nomnis consequatur deserunt\n \r\tconsequuntur perspiciatis sint ut officia esse\neos aut ipsum quas\niure consequatur eos asperiores\nid voluptas corrupti eius minus labore voluptatem necessitatibus quo\ndolorem nam cupiditate excepturi voluptates in ea",
@@ -21,7 +23,8 @@
     "created_at": "1985-11-18T17:21:01.662Z",
     "summary": "hic ut officiis\nut consequatur praesentium ipsam reprehenderit repudiandae\nat aut sed sit",
     "author_id": 4,
-    "id": 3
+    "id": 3,
+    "is_published": true
   },
   {
     "body": "culpa sunt cumque at est laudantium rerum\nquia aspernatur a magni\nexplicabo quo expedita temporibus consequatur\n \r\texcepturi voluptatem provident consequatur distinctio hic eum ut\nomnis aut similique\nest velit aperiam consequatur nihil\n \r\tdistinctio dolorum dolore velit earum eveniet qui eos voluptas\nporro ut odio delectus perspiciatis in nulla\ntenetur cupiditate dolor sit et aliquid\net incidunt sed sed officia",
@@ -29,7 +32,8 @@
     "created_at": "2005-12-16T01:42:51.212Z",
     "summary": "cupiditate adipisci ea vel\nsed deleniti accusantium voluptatibus\nmagni voluptate velit",
     "author_id": 3,
-    "id": 4
+    "id": 4,
+    "is_published": true
   },
   {
     "body": "praesentium nostrum consequatur ullam porro quibusdam\ndeserunt repellat quam fugiat aut totam\naut cupiditate sed aspernatur\n \r\titaque expedita cumque veritatis necessitatibus architecto nobis\neos reiciendis ex est blanditiis provident et\nquia maxime doloribus blanditiis aut ea\n \r\todit non necessitatibus omnis voluptas doloribus\nvoluptatum quibusdam magni qui at libero et aperiam\nreiciendis adipisci placeat cupiditate qui ut\nqui omnis quidem eveniet debitis",
@@ -37,6 +41,7 @@
     "created_at": "2017-04-04T03:47:01.244Z",
     "summary": "laborum illum quia iusto iure et est rerum\nut est tempora aut velit\nab molestias temporibus laboriosam eligendi",
     "author_id": 5,
-    "id": 5
+    "id": 5,
+    "is_published": false
   }
 ]

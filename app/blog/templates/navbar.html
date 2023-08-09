@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{ url_for('index.index_view') }}">
+    <a class="navbar-brand" href="{{ url_for('index_app.root') }}">
       <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Logo" width="30" height="24"
           class="d-inline-block align-text-top">
       {% block navbar_title %}
@@ -13,23 +13,33 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link{% if active_page=='articles' %} active{% endif %}"
-              href="{{ url_for('article.articles_list') }}">
-            Articles
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link{% if active_page=='users' %} active{% endif %}"
-              href="{{ url_for('user.users_list') }}">
-            Users
-          </a>
-        </li>
+        {% for (endpoint, label, show_item) in [('articles_app.list', 'Articles', True), ('users_app.list', 'Users', current_user.is_staff)] %}
+          {% if show_item %}
+            <li class="nav-item">
+              <a href="{{ url_for(endpoint) }}" class="nav-link{% if request.endpoint == endpoint %} active{% endif %}">
+                {{ label }}
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <div class="navbar-nav ms-auto">
+        {% if current_user.is_authenticated %}
+          <a class="nav-link" href="{{ url_for('users_app.details', pk=current_user.id) }}">
+            {{ current_user.username | capitalize }}
+          </a>
+          <a class="nav-link" href="{{ url_for('auth_app.logout') }}">Logout</a>
+        {% else %}
+          <a href="{{ url_for('auth_app.login') }}"
+              class="nav-link{% if request.endpoint == 'login' %} active{% endif %}">
+            Login
+          </a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </nav>

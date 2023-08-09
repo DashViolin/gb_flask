@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "username": "admin",
+    "fullname": "admin",
+    "created_at": "2021-07-24T15:30:40.817Z",
+    "email": "admin@mail.ru",
+    "is_staff": true
+  },
+  {
+    "id": 2,
+    "username": "user2",
+    "fullname": "Emmy Spencer",
+    "created_at": "2001-06-23T03:06:00.302Z",
+    "email": "Velva_Skiles@charity.io",
+    "is_staff": true
+  },
+  {
+    "id": 3,
+    "username": "user3",
+    "fullname": "Susana Huels",
+    "created_at": "2005-01-03T12:57:38.715Z",
+    "email": "Kody_OReilly@stevie.io",
+    "is_staff": false
+  },
+  {
+    "id": 4,
+    "username": "user4",
+    "fullname": "Kelley Wilderman",
+    "created_at": "2015-10-23T10:11:44.214Z",
+    "email": "Fatima@adan.ca",
+    "is_staff": false
+  },
+  {
+    "id": 5,
+    "username": "user5",
+    "fullname": "Vernie Durgan",
+    "created_at": "2022-10-24T08:12:08.363Z",
+    "email": "Lambert@payton.com",
+    "is_staff": false
+  }
+]
