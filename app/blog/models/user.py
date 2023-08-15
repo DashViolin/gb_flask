@@ -15,6 +15,8 @@ class User(db.Model, UserMixin):
     fullname = Column(String(80), unique=False, nullable=False)
     email = Column(String(80), unique=True, nullable=False)
     created_at = Column(DateTime, nullable=False, default=datetime.now())
+    updated_at = Column(DateTime, nullable=True, onupdate=datetime.now())
+    last_login = Column(DateTime, nullable=True)
     is_staff = Column(Boolean, nullable=False, default=False)
 
     def __repr__(self):

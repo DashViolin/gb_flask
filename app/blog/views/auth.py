@@ -1,6 +1,9 @@
+from datetime import datetime
+
 from flask import Blueprint, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
 
+from ..extensions import db
 from ..models.user import User
 
 auth_app = Blueprint("auth_app", import_name=__name__, url_prefix="/auth", static_folder="../static")
@@ -24,6 +27,9 @@ def login():
     if user.password != password:
         return render_template("auth/login.html", error="wrong password!")
     login_user(user)
+    user.last_login = datetime.now()
+    db.session.add(user)
+    db.session.commit()
     return redirect(url_for("index_app.root"))
 
 
