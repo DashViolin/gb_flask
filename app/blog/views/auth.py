@@ -1,35 +1,35 @@
-from flask import Blueprint, redirect, render_template, request, url_for
-from flask_login import LoginManager, login_required, login_user, logout_user
+from datetime import datetime
 
+from flask import Blueprint, redirect, render_template, request, url_for
+from flask_login import current_user, login_required, login_user, logout_user
+
+from ..extensions import db
 from ..models.user import User
 
 auth_app = Blueprint("auth_app", import_name=__name__, url_prefix="/auth", static_folder="../static")
-
-login_manager = LoginManager()
-login_manager.login_view = "auth_app.login"
-
-
-@login_manager.user_loader
-def load_user(user_id: int):
-    return User.query.filter_by(id=user_id).one_or_none()
-
-
-@login_manager.unauthorized_handler
-def unauthorized():
-    return redirect(url_for("auth_app.login"))
 
 
 @auth_app.route("/login/", methods=["GET", "POST"], endpoint="login")
 def login():
     if request.method == "GET":
-        return render_template("auth/login.html")
+        if not current_user.is_authenticated:
+            return render_template("auth/login.html")
+        return redirect(url_for("index_app.root"))
     username = request.form.get("username")
     if not username:
         return render_template("auth/login.html", error="username not passed")
+    password = request.form.get("password")
+    if not password:
+        return render_template("auth/login.html", error="password not passed")
     user = User.query.filter_by(username=username).one_or_none()
     if not user:
         return render_template("auth/login.html", error=f"no user {username!r} found")
+    if user.password != password:
+        return render_template("auth/login.html", error="wrong password!")
     login_user(user)
+    user.last_login = datetime.now()
+    db.session.add(user)
+    db.session.commit()
     return redirect(url_for("index_app.root"))
 
 
@@ -40,13 +40,6 @@ def logout():
     return redirect(url_for("index_app.root"))
 
 
-@auth_app.route("/secret/")
-@login_required
-def secret_view():
-    return "Super secret data"
-
-
 __all__ = [
-    "login_manager",
     "auth_app",
 ]
