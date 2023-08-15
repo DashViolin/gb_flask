@@ -1,0 +1,50 @@
+version: '3.8'
+services:
+  app:
+    image: flaskapp:0.1
+    hostname: flask_app
+    container_name: flask_app
+    build:
+      dockerfile: ./Dockerfile
+      context: ./
+    env_file:
+      - ./app/blog/config/.env
+    environment:
+      - FLASK_DEBUG=1
+      # - SQLALCHEMY_DATABASE_URI=sqlite:////tmp/blog.sqlite
+    volumes:
+      - ./app/blog:/app/blog
+      - ./data:/tmp
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    command:
+      - sh
+      - -c
+      - |
+        poetry run flask init-db
+        poetry run flask create-superuser
+        poetry run flask load-fixtures
+        poetry run flask run --host 0.0.0.0 --debug
+
+  db:
+    image: postgres:15-alpine
+    hostname: flask_db
+    container_name: flask_db
+    env_file:
+      - ./app/blog/config/.env
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - /tmp/pgdata_dev:/var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer:latest
+    hostname: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - "8080:8080"

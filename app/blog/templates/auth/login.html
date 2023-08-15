@@ -4,19 +4,84 @@
   Login as
 {% endblock %}
 
+{% block navbar %}
+{% endblock %}
+
 {% block greeting %}
 {% endblock %}
 
 {% block content %}
-  <h1>Login as user:</h1>
-  {% if error %}
-    <div class="alert alert-danger" role="alert">
-      {{ error }}
+
+
+  <div class="mask d-flex align-items-center h-100">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-5 col-md-8">
+          <h1>Login as user:</h1>
+          {% if error %}
+            <div class="alert alert-danger" role="alert">
+              {{ error | capitalize }}
+            </div>
+          {% endif %}
+          <form class="form-signin" method="post">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="username">Username or email address</label>
+              <input type="text" id="username" name="username" class="form-control"/>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="password">Password</label>
+              <input type="password" id="password" name="password" class="form-control"/>
+            </div>
+
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row mb-4">
+              {#      <div class="col d-flex justify-content-center">#}
+              {#        <!-- Checkbox -->#}
+              {#        <div class="form-check">#}
+              {#          <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked/>#}
+              {#          <label class="form-check-label" for="form2Example31"> Remember me </label>#}
+              {#        </div>#}
+              {#      </div>#}
+
+              {#      <div class="col">#}
+              {#        <!-- Simple link -->#}
+              {#        <a href="#!">Forgot password?</a>#}
+              {#      </div>#}
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block col-xl-5 col-md-8">Login</button>
+            {#        <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>#}
+
+            {#      <!-- Register buttons -->#}
+            {#    <div class="text-center">#}
+            {#      <p>Not a member? <a href="#!">Register</a></p>#}
+            {#      <p>or sign up with:</p>#}
+            {#      <button type="button" class="btn btn-link btn-floating mx-1">#}
+            {#        <i class="fab fa-facebook-f"></i>#}
+            {#      </button>#}
+            {##}
+            {#      <button type="button" class="btn btn-link btn-floating mx-1">#}
+            {#        <i class="fab fa-google"></i>#}
+            {#      </button>#}
+            {##}
+            {#      <button type="button" class="btn btn-link btn-floating mx-1">#}
+            {#        <i class="fab fa-twitter"></i>#}
+            {#      </button>#}
+            {##}
+            {#      <button type="button" class="btn btn-link btn-floating mx-1">#}
+            {#        <i class="fab fa-github"></i>#}
+            {#      </button>#}
+            {#    </div>#}
+          </form>
+        </div>
+      </div>
     </div>
-  {% endif %}
-  <form method="post">
-    <label for="input-username">Login as (username):</label>
-    <input id="input-username" type="text" name="username" placeholder="guest" required>
-    <button type="submit">Login</button>
-  </form>
+  </div>
+{% endblock %}
+
+{% block footer %}
 {% endblock %}
