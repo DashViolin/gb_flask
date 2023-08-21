@@ -1,5 +1,5 @@
-from .article import Article
-from .user import User
+from .articles import Article
+from .users import User
 
 __all__ = [
     "Article",

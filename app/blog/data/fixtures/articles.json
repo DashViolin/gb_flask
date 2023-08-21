@@ -5,7 +5,6 @@
     "created_at": "2022-12-27T13:09:31.094Z",
     "summary": "inventore officia consequuntur dolorem dolorum adipisci\naccusamus est atque quam odit neque\nratione quibusdam ab",
     "author_id": 1,
-    "id": 1,
     "is_published": true
   },
   {
@@ -14,7 +13,6 @@
     "created_at": "1989-09-25T00:13:35.842Z",
     "summary": "quia beatae nobis ut repellat eos sit\nveritatis eius officiis\nquasi et atque accusantium necessitatibus",
     "author_id": 5,
-    "id": 2,
     "is_published": true
   },
   {
@@ -23,7 +21,6 @@
     "created_at": "1985-11-18T17:21:01.662Z",
     "summary": "hic ut officiis\nut consequatur praesentium ipsam reprehenderit repudiandae\nat aut sed sit",
     "author_id": 4,
-    "id": 3,
     "is_published": true
   },
   {
@@ -32,7 +29,6 @@
     "created_at": "2005-12-16T01:42:51.212Z",
     "summary": "cupiditate adipisci ea vel\nsed deleniti accusantium voluptatibus\nmagni voluptate velit",
     "author_id": 3,
-    "id": 4,
     "is_published": true
   },
   {
@@ -41,7 +37,6 @@
     "created_at": "2017-04-04T03:47:01.244Z",
     "summary": "laborum illum quia iusto iure et est rerum\nut est tempora aut velit\nab molestias temporibus laboriosam eligendi",
     "author_id": 5,
-    "id": 5,
     "is_published": false
   }
 ]

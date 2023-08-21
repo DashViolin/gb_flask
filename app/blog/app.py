@@ -4,6 +4,7 @@ from .commands import create_superuser, create_users, init_db
 from .config.settings import Config
 from .extensions import db, login_manager, migrate
 from .middleware import after_request_timestamp, before_request_timestamp
+from .security import flask_bcrypt
 from .template_filters import rus_datetime_fmt
 from .views import articles_app, auth_app, index_app, users_app
 
@@ -24,6 +25,7 @@ def register_extensions(app: Flask):
 
     db.init_app(app)
     migrate.init_app(app, db, compare_type=True)
+    flask_bcrypt.init_app(app)
     login_manager.login_view = "auth_app.login"
     login_manager.init_app(app)
 

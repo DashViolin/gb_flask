@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "username": "admin",
     "password": "admin",
     "fullname": "admin",
@@ -9,7 +8,6 @@
     "is_staff": true
   },
   {
-    "id": 2,
     "username": "user2",
     "password": "user2",
     "fullname": "Emmy Spencer",
@@ -18,7 +16,6 @@
     "is_staff": true
   },
   {
-    "id": 3,
     "username": "user3",
     "password": "user3",
     "fullname": "Susana Huels",
@@ -27,7 +24,6 @@
     "is_staff": false
   },
   {
-    "id": 4,
     "username": "user4",
     "password": "user4",
     "fullname": "Kelley Wilderman",
@@ -36,7 +32,6 @@
     "is_staff": false
   },
   {
-    "id": 5,
     "username": "user5",
     "password": "user5",
     "fullname": "Vernie Durgan",
