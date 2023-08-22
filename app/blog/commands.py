@@ -62,4 +62,4 @@ def create_users():
 
     for fixture, model in fixtures:
         loaded_count = load_fixture(fixture, model)
-        print(f'Loaded {loaded_count} from fixture "{fixture}"')
+        print(f'Loaded {loaded_count} objects from fixture "{fixture}"')
