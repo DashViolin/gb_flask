@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title %}
+  Article details
+{% endblock %}
+
 {% block content %}
   <h3>{{ article.title | capitalize }}</h3>
   <p class="mt-1">

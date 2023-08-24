@@ -13,7 +13,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        {% for (endpoint, label, show_item) in [('articles_app.list', 'Articles', True), ('users_app.list', 'Users', current_user.is_staff)] %}
+        {% for (endpoint, label, show_item) in [
+            ('articles_app.list', 'Articles', True),
+            ('authors_app.list', 'Authors', True),
+            ('users_app.list', 'Users', current_user.is_staff)
+        ] %}
           {% if show_item %}
             <li class="nav-item">
               <a href="{{ url_for(endpoint) }}" class="nav-link{% if request.endpoint == endpoint %} active{% endif %}">

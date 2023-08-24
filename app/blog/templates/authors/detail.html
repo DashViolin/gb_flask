@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Author details
+{% endblock %}
+
+{% block content %}
+  <h3>{{ author.user.fullname }}</h3>
+  <p>{{ author.user.email }}</p>
+  <p>Username: {{ author.user.username }}</p>
+  <p>Became author: <i>{{ author.created_at | rus_datetime_fmt }}</i></p>
+  {% if author.articles %}
+    <br>
+    <h5> Articles written: </h5>
+    <ul>
+      {% for article in author.articles %}
+        <li>
+          <a href="{{ url_for('articles_app.details', pk=article.id) }}">{{ article.title | capitalize }}</a>
+          <p>{{ article.created_at | rus_datetime_fmt }}
+              {% if article.is_published %} (Published){% else %} (Not published){% endif %}
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

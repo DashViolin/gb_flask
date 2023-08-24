@@ -6,13 +6,14 @@ from .extensions import db, login_manager, migrate
 from .middleware import after_request_timestamp, before_request_timestamp
 from .security import flask_bcrypt
 from .template_filters import rus_datetime_fmt
-from .views import articles_app, auth_app, index_app, users_app
+from .views import articles_app, auth_app, authors_app, index_app, users_app
 
 
 def register_blueprints(app: Flask):
     app.register_blueprint(auth_app)
     app.register_blueprint(index_app)
     app.register_blueprint(users_app)
+    app.register_blueprint(authors_app)
     app.register_blueprint(articles_app)
 
 

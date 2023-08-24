@@ -7,7 +7,7 @@ import click
 from sqlalchemy.exc import IntegrityError, PendingRollbackError
 
 from .extensions import db
-from .models import Article, User
+from .models import Article, Author, User
 
 
 @click.command("init-db")
@@ -44,12 +44,14 @@ def create_users():
         with open(fixture_path) as file:
             data_list = json.load(file)
             for data_obj in data_list:
-                data_obj["created_at"] = convert_datetime(data_obj["created_at"])
+                if "created_at" in data_obj.keys():
+                    data_obj["created_at"] = convert_datetime(data_obj["created_at"])
                 db.session.add(model_obj(**data_obj))
                 try:
                     db.session.commit()
                     counter += 1
-                except (IntegrityError, PendingRollbackError):
+                except (IntegrityError, PendingRollbackError) as ex:
+                    print(ex)
                     db.session.rollback()
         return counter
 
@@ -57,6 +59,7 @@ def create_users():
 
     fixtures = [
         (fixtures_folder / r"users.json", User),
+        (fixtures_folder / r"authors.json", Author),
         (fixtures_folder / r"articles.json", Article),
     ]
 
