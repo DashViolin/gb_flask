@@ -62,7 +62,6 @@ def register():
             "email": form.email.data,
             "password": form.password.data,
         }
-        # print(**dict(form))
         user = User(**user_data)
         db.session.add(user)
         try:

@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, Text
+from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, Text, func
 from sqlalchemy.orm import relationship
 
 from ..extensions import db
@@ -13,11 +13,12 @@ class Article(db.Model):
     title = Column(Text, nullable=False)
     summary = Column(Text, nullable=False)
     body = Column(Text, nullable=False)
-    created_at = Column(DateTime, nullable=False, default=datetime.now())
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow(), server_default=func.now())
+    updated_at = Column(DateTime, nullable=True, default=datetime.utcnow(), onupdate=datetime.utcnow())
     is_published = Column(Boolean, nullable=False, default=False)
-    author_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    author_id = Column(Integer, ForeignKey("authors.id"), nullable=False)
 
-    author = relationship("User", backref="articles")
+    author = relationship("Author", backref="articles")
 
     def __repr__(self):
         return f"<Article #{self.id} {self.title}>"
