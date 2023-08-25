@@ -1,6 +1,6 @@
 from flask import Flask
 
-from .commands import create_superuser, create_users, init_db
+from .commands import create_superuser, create_tags, create_users, init_db
 from .config.settings import Config
 from .extensions import db, login_manager, migrate
 from .middleware import after_request_timestamp, before_request_timestamp
@@ -39,6 +39,7 @@ def register_commands(app: Flask):
     app.cli.add_command(init_db)
     app.cli.add_command(create_users)
     app.cli.add_command(create_superuser)
+    app.cli.add_command(create_tags)
 
 
 def register_middleware(app: Flask):

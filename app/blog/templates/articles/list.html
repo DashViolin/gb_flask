@@ -5,14 +5,25 @@
 {% endblock %}
 
 {% block content %}
-  <button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for('articles_app.create') }}';">Create new article</button>
-  <hr>
+  {% if not current_user.is_anonymous %}
+    <button type="button" class="btn btn-primary"
+        onclick="window.location.href='{{ url_for('articles_app.create') }}';">Create new article
+    </button>
+    <hr>
+  {% endif %}
   <h2>Articles:</h2>
   <ul>
     {% for article in articles %}
       <li>
         <h3><a href="{{ url_for('articles_app.details', pk=article.id) }}">{{ article.title | capitalize }}</a></h3>
-        <p>{{ article.summary }} {% if current_user.is_staff %} (Published){% else %} (Not published){% endif %}</p>
+        <p>{{ article.summary }}
+          {% if current_user.is_staff %}
+            {% if article.is_published %}
+              <b><u> (Published)</u></b>
+            {% else %}
+              <b><u> (Not published)</u></b>
+            {% endif %}
+          {% endif %}</p>
       </li>
     {% endfor %}
   </ul>
