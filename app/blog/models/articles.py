@@ -4,6 +4,7 @@ from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, Text, fun
 from sqlalchemy.orm import relationship
 
 from ..extensions import db
+from .articles_tags import article_tag_association_table
 
 
 class Article(db.Model):
@@ -19,6 +20,7 @@ class Article(db.Model):
     author_id = Column(Integer, ForeignKey("authors.id"), nullable=False)
 
     author = relationship("Author", backref="articles")
+    tags = relationship("Tag", secondary=article_tag_association_table, back_populates="articles")
 
     def __repr__(self):
         return f"<Article #{self.id} {self.title}>"

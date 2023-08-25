@@ -1,8 +1,11 @@
 from .articles import Article
-from .users import Author, User
+from .authors import Author
+from .tags import Tag
+from .users import User
 
 __all__ = [
     "Article",
     "Author",
     "User",
+    "Tag",
 ]
