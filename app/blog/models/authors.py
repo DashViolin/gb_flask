@@ -15,3 +15,6 @@ class Author(db.Model):
     updated_at = Column(DateTime, nullable=True, default=datetime.utcnow(), onupdate=datetime.utcnow())
 
     user = relationship("User", back_populates="author")
+
+    def __str__(self):
+        return self.user.username
