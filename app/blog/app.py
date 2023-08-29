@@ -1,6 +1,7 @@
 from flask import Flask
 
 from .admin import admin
+from .api import init_api
 from .commands import create_superuser, create_tags, create_users, init_db
 from .config.settings import Config
 from .extensions import db, login_manager, migrate
@@ -31,6 +32,7 @@ def register_extensions(app: Flask):
     login_manager.login_view = "auth_app.login"
     login_manager.init_app(app)
     admin.init_app(app)
+    init_api(app)
 
     @login_manager.user_loader
     def load_user(user_id: int):
