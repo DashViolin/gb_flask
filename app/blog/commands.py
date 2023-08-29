@@ -4,7 +4,7 @@ import os
 import pathlib
 
 import click
-from sqlalchemy.exc import IntegrityError, PendingRollbackError
+from sqlalchemy.exc import IntegrityError
 
 from .extensions import db
 from .models import Article, Author, Tag, User
@@ -62,7 +62,7 @@ def create_users():
                 try:
                     db.session.commit()
                     counter += 1
-                except (IntegrityError, PendingRollbackError):
+                except IntegrityError:
                     db.session.rollback()
         return counter
 
@@ -91,6 +91,6 @@ def create_tags():
             db.session.add(tag)
             db.session.commit()
             counter += 1
-        except (IntegrityError, PendingRollbackError) as ex:
+        except IntegrityError as ex:
             print(ex)
     print("Tags created")
