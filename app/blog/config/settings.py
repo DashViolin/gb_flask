@@ -12,10 +12,8 @@ if env_path.exists():
 
 class Config:
     FLASK_ENV = os.getenv("FLASK_ENV", default=EnvType.production)
-    DEBUG = FLASK_ENV.upper() == EnvType.development
-    TESTING = FLASK_ENV.upper() == EnvType.testing
-    FLASK_DEBUG = DEBUG
-    FLASK_TESTING = TESTING
+    FLASK_DEBUG = DEBUG = FLASK_ENV.upper() == EnvType.development
+    FLASK_TESTING = TESTING = FLASK_ENV.upper() == EnvType.testing
     SECRET_KEY = os.getenv("SECRET_KEY")
     SQLALCHEMY_DATABASE_URI = os.getenv("SQLALCHEMY_DATABASE_URI")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
