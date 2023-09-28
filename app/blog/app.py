@@ -27,6 +27,7 @@ def register_extensions(app: Flask):
     from .models import User
 
     db.init_app(app)
+    db.app = app
     migrate.init_app(app, db, compare_type=True)
     flask_bcrypt.init_app(app)
     login_manager.login_view = "auth_app.login"

@@ -12,9 +12,10 @@ class ArticleSchema(Schema):
 
     id = Integer(as_string=True)
     title = String(allow_none=False)
+    summary = String(allow_none=True)
     body = String(allow_none=False)
-    dt_created = DateTime(allow_none=False)
-    dt_updated = DateTime(allow_none=False)
+    dt_created = DateTime(allow_none=True)
+    dt_updated = DateTime(allow_none=True)
     author = Relationship(
         nested="AuthorSchema",
         attribute="author",
