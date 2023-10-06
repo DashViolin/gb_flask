@@ -2,7 +2,7 @@ from flask import Flask
 
 from .admin import admin
 from .api import init_api
-from .commands import create_superuser, create_tags, create_users, init_db
+from .commands import create_superuser, create_tags, init_db, initialize_db_objects, load_fixtures
 from .config.settings import Config
 from .extensions import db, login_manager, migrate
 from .middleware import after_request_timestamp, before_request_timestamp
@@ -42,7 +42,7 @@ def register_extensions(app: Flask):
 
 def register_commands(app: Flask):
     app.cli.add_command(init_db)
-    app.cli.add_command(create_users)
+    app.cli.add_command(load_fixtures)
     app.cli.add_command(create_superuser)
     app.cli.add_command(create_tags)
 
@@ -88,5 +88,7 @@ def create_app() -> Flask:
     register_template_filters(app)
     register_middleware(app)
     register_error_handlers(app)
+
+    initialize_db_objects()
 
     return app

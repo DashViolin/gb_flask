@@ -73,6 +73,7 @@ def register():
         else:
             current_app.logger.info("Created user %s", user)
             login_user(user)
+            user.last_login = datetime.now()
         return redirect(url_for("index_app.root"))
     return render_template("auth/register.html", form=form, errors=errors)
 

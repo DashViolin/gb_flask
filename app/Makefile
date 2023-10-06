@@ -3,10 +3,6 @@ reset:
 	sleep 1
 	sudo rm -rf ../data/pgdata_dev/
 	docker-compose up -d
-	sleep 4
-	poetry run flask init-db
-	sleep 2
-	poetry run flask load-fixtures
 
 
 restart:

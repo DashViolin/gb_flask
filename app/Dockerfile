@@ -13,4 +13,5 @@ RUN pip install --no-cache-dir --upgrade pip \
 
 EXPOSE 5000
 
-CMD ["poetry", "run", "flask", "--app", "wsgi", "run", "--host", "0.0.0.0", "--debug"]
+# CMD ["poetry", "run", "flask", "--app", "wsgi", "run", "--host", "0.0.0.0", "--debug"]
+CMD ["poetry", "run", "gunicorn", "-w", "1", "-b", "0.0.0.0:8000", "wsgi:app"]
