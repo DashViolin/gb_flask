@@ -11,7 +11,7 @@ RUN pip install --no-cache-dir --upgrade pip \
  && pip install --no-cache-dir poetry \
  && poetry install --only main
 
-EXPOSE 5000
+EXPOSE 80
 
 # CMD ["poetry", "run", "flask", "--app", "wsgi", "run", "--host", "0.0.0.0", "--debug"]
-CMD ["poetry", "run", "gunicorn", "-w", "1", "-b", "0.0.0.0:8000", "wsgi:app"]
+CMD ["poetry", "run", "gunicorn", "-w", "1", "-b", "0.0.0.0:80", "wsgi:app"]
